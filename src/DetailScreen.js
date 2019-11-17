@@ -3,10 +3,10 @@ import { View, Text , Button} from 'react-native';
 
 export default class DetailScreen extends Component { 
 
-  componentDidMount () {
-    let item = this.props.navigation.getParam('item')
-    alert(JSON.stringify(item))
-  }
+  // componentDidMount () {
+  //   let item = this.props.navigation.getParam('item')
+  //   alert(JSON.stringify(item))
+  // }
 
   render() {
     return (

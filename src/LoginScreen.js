@@ -7,21 +7,28 @@ import {
   Image
 } from 'react-native';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
+
 export default class LoginScreen extends Component {
 
-  onClickLogin = () => {
-    this.props.navigation.navigate('AppScene')
+   onClickLogin = async () => {
+    try {
+      await AsyncStorage.setItem('username', 'Levi Wachira')
+      this.props.navigation.navigate('AppScene')
+    } catch (err) {
+      alert(err)
+    }
   }
 
   onClickRegister = () => {
     this.props.navigation.navigate('Register')
   }
 
-
   render() {
 
     return (
-      <View style={{ flex: 1, flexDirection: 'column' , justifyContent : 'space-around' }}>
+      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-around' }}>
         <Button title="Login" onPress={this.onClickLogin} />
         <Button title="Register" onPress={this.onClickRegister} />
       </View>

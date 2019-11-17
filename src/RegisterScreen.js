@@ -27,6 +27,7 @@ RegisterScreen.navigationOptions = ({ navigation }) => {
     headerTintColor: "#FFFFFF",
     headerTitleStyle: { color: "#fff" },
     headerBackTitle: " ",
+
   
   };
 };
