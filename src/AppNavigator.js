@@ -1,11 +1,8 @@
 
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
-
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-
 import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
 import Tab1Screen from './Tab1Screen';
@@ -19,7 +16,6 @@ const BottomTabStack = createBottomTabNavigator({
 }, {
   initialRouteName: 'Tab1'
 })
-
 
 BottomTabStack.navigationOptions = ({ navigation }) => {
   const { routeName } = navigation.state.routes[navigation.state.index];
@@ -35,9 +31,7 @@ BottomTabStack.navigationOptions = ({ navigation }) => {
   };
 };
 
-
 const Appstack = createStackNavigator({
-
   Tabs: { screen: BottomTabStack },
   Detail: { screen: DetailScreen }
 }, {
@@ -46,16 +40,21 @@ const Appstack = createStackNavigator({
 
 const AuthenStack = createStackNavigator({
   Home: { screen: LoginScreen },
-  Register: { screen: RegisterScreen }
 }, {
   initialRouteName: 'Home'
 })
 
+const RegisterStack = createStackNavigator({
+  Register: { screen: RegisterScreen }
+} , {
+  initialRouteName : 'Register'
+})
 
 export default createAppContainer(
   createSwitchNavigator({
     AuthenScene: AuthenStack,
-    AppScene: Appstack
+    AppScene: Appstack ,
+    Register : RegisterStack 
   }, {
     initialRouteName: 'AuthenScene'
   })
